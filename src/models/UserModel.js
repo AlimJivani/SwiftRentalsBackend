@@ -1,7 +1,7 @@
-// src/models/userModel.js
+// src/models/UserModel.js
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
@@ -10,8 +10,9 @@ const userSchema = new Schema({
   isConfirmed: { type: Boolean, required: true, default: false },
   resetToken: { type: String },
   resetTokenExpiry: { type: Date },
+  createdAt: { type: Date, default: Date.now }
 });
 
-const User = model("User", userSchema);
+const User = model("User", UserSchema);
 
 export default User;
